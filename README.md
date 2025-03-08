@@ -20,7 +20,7 @@ from tag_reader import TagReader
 
 
 ```python
-htmls_dir = "./data/htmls"  
+htmls_dir = "./data/htmls"
 doms_dir = "./data/doms"
 ```
 
@@ -34,14 +34,13 @@ for file in os.listdir(htmls_dir):
 
         reader = TagReader(os.path.join(htmls_dir, file))
         dom = reader.parse()
-        reader.save_to_file(os.path.join(doms_dir, file.replace(".html", ".json")))
-
+        reader.save_to_file(os.path.join(
+            doms_dir, file.replace(".html", ".json")))
 ```
 
 ### Sample
 
 ```json
-        },
         {
           "body": [
             {
@@ -58,4 +57,75 @@ for file in os.listdir(htmls_dir):
                   ]
                 },
 ```
+
+
+## Part 2: Aggregating `n` such DOMs
+
+
+
+```python
+from dom_aggregator import DomAggregator
+```
+
+
+```python
+da = DomAggregator(doms_dir)
+da.aggregate()
+da.save_to_file("./data/aggregated_dom.json")
+```
+
+### Sample
+
+```json
+          "body": {
+            "stats": {
+              "count": 1696,
+              "total_occurrences": 1696,
+              "percentage": 100.0
+            },
+            "children": {
+              "header": {
+                "stats": {
+                  "count": 1696,
+                  "total_occurrences": 1696,
+                  "percentage": 100.0
+                },
+                "children": {
+                  "figure": {
+                    "stats": {
+                      "count": 1696,
+                      "total_occurrences": 1696,
+                      "percentage": 100.0
+                    },
+                    "children": {
+                      "a": {
+                        "stats": {
+                          "count": 1696,
+                          "total_occurrences": 1696,
+                          "percentage": 100.0
+                        },
+                        "children": {
+                          "img": {
+                            "stats": {
+                              "count": 1696,
+                              "total_occurrences": 1696,
+                              "percentage": 100.0
+                            },
+                            "children": {}
+                          }
+                        }
+                      }
+                    }
+                  },
+```
+
+
+
+```python
+
+```
+
+---
+
+Under [its-ours](https://its-ours.org) license.
 
