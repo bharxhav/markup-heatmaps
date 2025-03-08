@@ -71,7 +71,7 @@ from dom_aggregator import DomAggregator
 ```python
 da = DomAggregator(doms_dir)
 da.aggregate()
-da.save_to_file("./data/aggregated_dom.json")
+da.save_to_file("./assets/aggregated_dom.json")
 ```
 
 ### Sample
@@ -120,10 +120,10 @@ da.save_to_file("./data/aggregated_dom.json")
 ```
 
 
+## Part 3: Visualize it!
 
-```python
+![sample.png](./assets/sample.png)
 
-```
 
 ---
 
