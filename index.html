@@ -11,8 +11,8 @@
         font-family: "JetBrains Mono", monospace;
         font-size: 14px;
         line-height: 1.5;
-        background-color: #14141e;
-        color: #f0f0f0;
+        background-color: #000;
+        color: #fff;
         padding: 20px;
         margin: 0;
       }
@@ -199,6 +199,43 @@
         margin-top: 10px;
         margin-right: 10px;
       }
+
+      #file-upload {
+        display: none;
+      }
+
+      .file-upload-label {
+        display: inline-block;
+        padding: 8px 16px;
+        background-color: #323250;
+        color: #f0f0f0;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 14px;
+        transition: background-color 0.2s;
+      }
+
+      .file-upload-label:hover {
+        background-color: #4b4b70;
+      }
+
+      .file-name {
+        margin-left: 10px;
+        font-size: 12px;
+        opacity: 0.8;
+      }
+
+      #load-demo {
+        margin-top: 20px;
+        background-color: #323250;
+        color: #f0f0f0;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: "JetBrains Mono", monospace;
+      }
     </style>
   </head>
   <body>
@@ -220,13 +257,18 @@
           />
         </div>
         <div>
+          <label for="file-upload" class="file-upload-label">Upload JSON</label>
+          <input type="file" id="file-upload" accept=".json" />
+          <span id="file-name" class="file-name"></span>
+        </div>
+        <div>
           <button id="expand-all">Expand All</button>
           <button id="collapse-all">Collapse All</button>
         </div>
       </div>
 
       <div class="legend">
-        <div class="legend-bar"></div>
+        <div id="legend-bar" class="legend-bar"></div>
         <div class="legend-labels">
           <span class="legend-label">0%</span>
           <span class="legend-label">20%</span>
@@ -239,8 +281,10 @@
       </div>
 
       <div id="visualization">
-        <div class="loading">Loading DOM data...</div>
+        <div class="loading">Upload a JSON file or use the demo data</div>
       </div>
+
+      <button id="load-demo" style="margin-top: 20px">Load Demo Data</button>
     </div>
 
     <script>
@@ -262,12 +306,16 @@
           );
           const expandAllBtn = document.getElementById("expand-all");
           const collapseAllBtn = document.getElementById("collapse-all");
+          const fileUpload = document.getElementById("file-upload");
+          const fileName = document.getElementById("file-name");
+          const loadDemoBtn = document.getElementById("load-demo");
 
           rainbowBtn.addEventListener("click", () => {
             this.colorMode = "rainbow";
             rainbowBtn.classList.add("active");
             monoBtn.classList.remove("active");
             colorPickerContainer.style.display = "none";
+            this.updateLegendBar();
             this.render();
           });
 
@@ -276,12 +324,14 @@
             monoBtn.classList.add("active");
             rainbowBtn.classList.remove("active");
             colorPickerContainer.style.display = "flex";
+            this.updateLegendBar();
             this.render();
           });
 
           colorPicker.addEventListener("input", (e) => {
             this.primaryColor = e.target.value;
             if (this.colorMode === "monochrome") {
+              this.updateLegendBar();
               this.render();
             }
           });
@@ -303,24 +353,237 @@
               if (children) children.classList.add("collapsed");
             });
           });
+
+          fileUpload.addEventListener("change", (e) => {
+            if (e.target.files.length > 0) {
+              const file = e.target.files[0];
+              fileName.textContent = file.name;
+              this.loadJsonFile(file);
+            }
+          });
+
+          loadDemoBtn.addEventListener("click", () => {
+            this.loadDemoData();
+            fileName.textContent = "demo-data.json";
+          });
+
+          // Initialize legend bar
+          this.updateLegendBar();
         }
 
-        async loadDomData() {
+        updateLegendBar() {
+          const legendBar = document.getElementById("legend-bar");
+
+          if (this.colorMode === "rainbow") {
+            legendBar.style.background =
+              "linear-gradient(to right, #2050ff, #ff5050)";
+          } else {
+            // Create a monochrome gradient with the primary color
+            const [r, g, b] = this.hexToRgb(this.primaryColor);
+            const [h, s, v] = this.rgbToHsv(r, g, b);
+
+            // Generate color at 10% opacity
+            const [r1, g1, b1] = this.hsvToRgb(h, s * 0.1, v);
+            // Generate color at 100% opacity
+            const [r2, g2, b2] = this.hsvToRgb(h, s, v);
+
+            legendBar.style.background = `linear-gradient(to right, rgba(${r1}, ${g1}, ${b1}, 0.2), rgba(${r2}, ${g2}, ${b2}, 1))`;
+          }
+        }
+
+        async loadJsonFile(file) {
           try {
             this.container.innerHTML =
-              '<div class="loading">Loading DOM data...</div>';
-            const response = await fetch("./assets/aggregated_dom.json");
-            if (!response.ok) {
-              throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            this.domData = await response.json();
-            this.render();
-            return this.domData;
+              '<div class="loading">Loading your JSON file...</div>';
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+              try {
+                this.domData = JSON.parse(e.target.result);
+                this.render();
+              } catch (error) {
+                console.error("Error parsing JSON:", error);
+                this.container.innerHTML = `<div class="error">Error parsing JSON: ${error.message}</div>`;
+              }
+            };
+
+            reader.onerror = (error) => {
+              console.error("Error reading file:", error);
+              this.container.innerHTML = `<div class="error">Error reading file: ${error.message}</div>`;
+            };
+
+            reader.readAsText(file);
           } catch (error) {
-            console.error("Error loading DOM data:", error);
-            this.container.innerHTML = `<div class="error">Error loading DOM data: ${error.message}</div>`;
-            return null;
+            console.error("Error loading file:", error);
+            this.container.innerHTML = `<div class="error">Error loading file: ${error.message}</div>`;
           }
+        }
+
+        loadDemoData() {
+          this.domData = {
+            html: {
+              stats: { percentage: 100, count: 100, total_occurrences: 100 },
+              children: {
+                head: {
+                  stats: { percentage: 90, count: 90, total_occurrences: 100 },
+                  children: {
+                    meta: {
+                      stats: {
+                        percentage: 85,
+                        count: 170,
+                        total_occurrences: 200,
+                        min: 1,
+                        max: 12,
+                        mean: 8.5,
+                        median: 8,
+                      },
+                    },
+                    title: {
+                      stats: {
+                        percentage: 95,
+                        count: 95,
+                        total_occurrences: 100,
+                      },
+                    },
+                    link: {
+                      stats: {
+                        percentage: 80,
+                        count: 240,
+                        total_occurrences: 300,
+                        min: 2,
+                        max: 15,
+                        mean: 7.2,
+                        median: 6,
+                      },
+                    },
+                  },
+                },
+                body: {
+                  stats: {
+                    percentage: 100,
+                    count: 100,
+                    total_occurrences: 100,
+                  },
+                  children: {
+                    div: {
+                      stats: {
+                        percentage: 98,
+                        count: 490,
+                        total_occurrences: 500,
+                      },
+                      children: {
+                        header: {
+                          stats: {
+                            percentage: 75,
+                            count: 75,
+                            total_occurrences: 100,
+                            min: 1,
+                            max: 1,
+                            mean: 1,
+                            median: 1,
+                          },
+                        },
+                        main: {
+                          stats: {
+                            percentage: 80,
+                            count: 80,
+                            total_occurrences: 100,
+                          },
+                        },
+                        footer: {
+                          stats: {
+                            percentage: 70,
+                            count: 70,
+                            total_occurrences: 100,
+                          },
+                        },
+                      },
+                    },
+                    script: {
+                      stats: {
+                        percentage: 90,
+                        count: 180,
+                        total_occurrences: 200,
+                        min: 1,
+                        max: 8,
+                        mean: 3.2,
+                        median: 3,
+                      },
+                    },
+                    ins: {
+                      stats: {
+                        count: 1696,
+                        total_occurrences: 5638,
+                        percentage: 100.0,
+                      },
+                      children: {
+                        div: {
+                          stats: {
+                            count: 1696,
+                            total_occurrences: 7113,
+                            percentage: 100.0,
+                          },
+                          children: {
+                            iframe: {
+                              stats: {
+                                count: 1695,
+                                total_occurrences: 5368,
+                                percentage: 99.94,
+                                min: 2,
+                                max: 4,
+                                mean: 3.17,
+                                median: 3,
+                              },
+                              children: {},
+                            },
+                          },
+                        },
+                        span: {
+                          stats: {
+                            count: 503,
+                            total_occurrences: 1006,
+                            percentage: 29.66,
+                            min: 2,
+                            max: 2,
+                            mean: 2,
+                            median: 2,
+                          },
+                          children: {
+                            svg: {
+                              stats: {
+                                count: 503,
+                                total_occurrences: 503,
+                                percentage: 29.66,
+                                min: 1,
+                                max: 1,
+                                mean: 1,
+                                median: 1,
+                              },
+                              children: {
+                                defs: {
+                                  stats: {
+                                    count: 503,
+                                    total_occurrences: 503,
+                                    percentage: 29.66,
+                                    min: 1,
+                                    max: 1,
+                                    mean: 1,
+                                    median: 1,
+                                  },
+                                  children: {},
+                                },
+                              },
+                            },
+                          },
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          };
+          this.render();
         }
 
         render() {
@@ -531,117 +794,12 @@
         }
       }
 
-      document.addEventListener("DOMContentLoaded", async () => {
+      // Initialize
+      document.addEventListener("DOMContentLoaded", () => {
         const visualizer = new DomVisualizer();
 
-        try {
-          await visualizer.loadDomData();
-        } catch (error) {
-          console.error("Failed to initialize visualizer:", error);
-          document.getElementById(
-            "visualization"
-          ).innerHTML = `<div class="error">Error initializing visualizer: ${error.message}</div>`;
-        }
-
-        // For development/demo purposes, use this fallback data if loading fails
-        if (!visualizer.domData) {
-          visualizer.domData = {
-            html: {
-              stats: { percentage: 100, count: 100, total_occurrences: 100 },
-              children: {
-                head: {
-                  stats: { percentage: 90, count: 90, total_occurrences: 100 },
-                  children: {
-                    meta: {
-                      stats: {
-                        percentage: 85,
-                        count: 170,
-                        total_occurrences: 200,
-                        min: 1,
-                        max: 12,
-                        mean: 8.5,
-                        median: 8,
-                      },
-                    },
-                    title: {
-                      stats: {
-                        percentage: 95,
-                        count: 95,
-                        total_occurrences: 100,
-                      },
-                    },
-                    link: {
-                      stats: {
-                        percentage: 80,
-                        count: 240,
-                        total_occurrences: 300,
-                        min: 2,
-                        max: 15,
-                        mean: 7.2,
-                        median: 6,
-                      },
-                    },
-                  },
-                },
-                body: {
-                  stats: {
-                    percentage: 100,
-                    count: 100,
-                    total_occurrences: 100,
-                  },
-                  children: {
-                    div: {
-                      stats: {
-                        percentage: 98,
-                        count: 490,
-                        total_occurrences: 500,
-                      },
-                      children: {
-                        header: {
-                          stats: {
-                            percentage: 75,
-                            count: 75,
-                            total_occurrences: 100,
-                            min: 1,
-                            max: 1,
-                            mean: 1,
-                            median: 1,
-                          },
-                        },
-                        main: {
-                          stats: {
-                            percentage: 80,
-                            count: 80,
-                            total_occurrences: 100,
-                          },
-                        },
-                        footer: {
-                          stats: {
-                            percentage: 70,
-                            count: 70,
-                            total_occurrences: 100,
-                          },
-                        },
-                      },
-                    },
-                    script: {
-                      stats: {
-                        percentage: 90,
-                        count: 180,
-                        total_occurrences: 200,
-                        min: 1,
-                        max: 8,
-                        mean: 3.2,
-                        median: 3,
-                      },
-                    },
-                  },
-                },
-              },
-            },
-          };
-          visualizer.render();
-        }
+        // Auto-load demo data
+        document.getElementById("load-demo").click();
       });
     </script>
   </body>
