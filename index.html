@@ -3,7 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DOM Structure Visualizer</title>
+    <link rel="icon" href="./assets/icon.svg" />
+
+    <meta name="author" content="Bhargav Kantheti" />
+    <meta name="author" content="https://isthisan.ai/" />
+    <meta
+      name="description"
+      content="A tool to visualize the DOM structure of a web page."
+    />
+
+    <title>Markup Heatmap | isthisanai</title>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap");
 
@@ -419,171 +428,15 @@
           }
         }
 
-        loadDemoData() {
-          this.domData = {
-            html: {
-              stats: { percentage: 100, count: 100, total_occurrences: 100 },
-              children: {
-                head: {
-                  stats: { percentage: 90, count: 90, total_occurrences: 100 },
-                  children: {
-                    meta: {
-                      stats: {
-                        percentage: 85,
-                        count: 170,
-                        total_occurrences: 200,
-                        min: 1,
-                        max: 12,
-                        mean: 8.5,
-                        median: 8,
-                      },
-                    },
-                    title: {
-                      stats: {
-                        percentage: 95,
-                        count: 95,
-                        total_occurrences: 100,
-                      },
-                    },
-                    link: {
-                      stats: {
-                        percentage: 80,
-                        count: 240,
-                        total_occurrences: 300,
-                        min: 2,
-                        max: 15,
-                        mean: 7.2,
-                        median: 6,
-                      },
-                    },
-                  },
-                },
-                body: {
-                  stats: {
-                    percentage: 100,
-                    count: 100,
-                    total_occurrences: 100,
-                  },
-                  children: {
-                    div: {
-                      stats: {
-                        percentage: 98,
-                        count: 490,
-                        total_occurrences: 500,
-                      },
-                      children: {
-                        header: {
-                          stats: {
-                            percentage: 75,
-                            count: 75,
-                            total_occurrences: 100,
-                            min: 1,
-                            max: 1,
-                            mean: 1,
-                            median: 1,
-                          },
-                        },
-                        main: {
-                          stats: {
-                            percentage: 80,
-                            count: 80,
-                            total_occurrences: 100,
-                          },
-                        },
-                        footer: {
-                          stats: {
-                            percentage: 70,
-                            count: 70,
-                            total_occurrences: 100,
-                          },
-                        },
-                      },
-                    },
-                    script: {
-                      stats: {
-                        percentage: 90,
-                        count: 180,
-                        total_occurrences: 200,
-                        min: 1,
-                        max: 8,
-                        mean: 3.2,
-                        median: 3,
-                      },
-                    },
-                    ins: {
-                      stats: {
-                        count: 1696,
-                        total_occurrences: 5638,
-                        percentage: 100.0,
-                      },
-                      children: {
-                        div: {
-                          stats: {
-                            count: 1696,
-                            total_occurrences: 7113,
-                            percentage: 100.0,
-                          },
-                          children: {
-                            iframe: {
-                              stats: {
-                                count: 1695,
-                                total_occurrences: 5368,
-                                percentage: 99.94,
-                                min: 2,
-                                max: 4,
-                                mean: 3.17,
-                                median: 3,
-                              },
-                              children: {},
-                            },
-                          },
-                        },
-                        span: {
-                          stats: {
-                            count: 503,
-                            total_occurrences: 1006,
-                            percentage: 29.66,
-                            min: 2,
-                            max: 2,
-                            mean: 2,
-                            median: 2,
-                          },
-                          children: {
-                            svg: {
-                              stats: {
-                                count: 503,
-                                total_occurrences: 503,
-                                percentage: 29.66,
-                                min: 1,
-                                max: 1,
-                                mean: 1,
-                                median: 1,
-                              },
-                              children: {
-                                defs: {
-                                  stats: {
-                                    count: 503,
-                                    total_occurrences: 503,
-                                    percentage: 29.66,
-                                    min: 1,
-                                    max: 1,
-                                    mean: 1,
-                                    median: 1,
-                                  },
-                                  children: {},
-                                },
-                              },
-                            },
-                          },
-                        },
-                      },
-                    },
-                  },
-                },
-              },
-            },
-          };
-          this.render();
+        async loadDemoData() {
+          try {
+            const response = await fetch("./assets/aggregated_dom.json");
+            this.domData = await response.json();
+            this.render();
+          } catch (error) {
+            console.error("Error loading demo data:", error);
+            this.container.innerHTML = `<div class="error">Error loading demo data: ${error.message}</div>`;
+          }
         }
 
         render() {

@@ -1,0 +1,1672 @@
+{
+  "[document]": {
+    "stats": {
+      "count": 1696,
+      "total_occurrences": 1696,
+      "percentage": 100.0
+    },
+    "children": {
+      "html": {
+        "stats": {
+          "count": 1696,
+          "total_occurrences": 1696,
+          "percentage": 100.0
+        },
+        "children": {
+          "head": {
+            "stats": {
+              "count": 1696,
+              "total_occurrences": 1696,
+              "percentage": 100.0
+            },
+            "children": {
+              "meta": {
+                "stats": {
+                  "count": 1696,
+                  "total_occurrences": 24450,
+                  "percentage": 100.0
+                },
+                "children": {}
+              },
+              "link": {
+                "stats": {
+                  "count": 1696,
+                  "total_occurrences": 44113,
+                  "percentage": 100.0
+                },
+                "children": {}
+              },
+              "style": {
+                "stats": {
+                  "count": 1696,
+                  "total_occurrences": 1696,
+                  "percentage": 100.0
+                },
+                "children": {}
+              },
+              "title": {
+                "stats": {
+                  "count": 1696,
+                  "total_occurrences": 1696,
+                  "percentage": 100.0
+                },
+                "children": {}
+              },
+              "script": {
+                "stats": {
+                  "count": 1695,
+                  "total_occurrences": 5645,
+                  "percentage": 99.94,
+                  "min": 1,
+                  "max": 5,
+                  "mean": 3.33,
+                  "median": 4
+                },
+                "children": {}
+              }
+            }
+          },
+          "body": {
+            "stats": {
+              "count": 1696,
+              "total_occurrences": 1696,
+              "percentage": 100.0
+            },
+            "children": {
+              "header": {
+                "stats": {
+                  "count": 1696,
+                  "total_occurrences": 1696,
+                  "percentage": 100.0
+                },
+                "children": {
+                  "figure": {
+                    "stats": {
+                      "count": 1696,
+                      "total_occurrences": 1696,
+                      "percentage": 100.0
+                    },
+                    "children": {
+                      "a": {
+                        "stats": {
+                          "count": 1696,
+                          "total_occurrences": 1696,
+                          "percentage": 100.0
+                        },
+                        "children": {
+                          "img": {
+                            "stats": {
+                              "count": 1696,
+                              "total_occurrences": 1696,
+                              "percentage": 100.0
+                            },
+                            "children": {}
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "form": {
+                    "stats": {
+                      "count": 1696,
+                      "total_occurrences": 1696,
+                      "percentage": 100.0
+                    },
+                    "children": {
+                      "p": {
+                        "stats": {
+                          "count": 1696,
+                          "total_occurrences": 1696,
+                          "percentage": 100.0
+                        },
+                        "children": {
+                          "input": {
+                            "stats": {
+                              "count": 1696,
+                              "total_occurrences": 5088,
+                              "percentage": 100.0
+                            },
+                            "children": {}
+                          },
+                          "label": {
+                            "stats": {
+                              "count": 1696,
+                              "total_occurrences": 1696,
+                              "percentage": 100.0
+                            },
+                            "children": {
+                              "img": {
+                                "stats": {
+                                  "count": 1696,
+                                  "total_occurrences": 1696,
+                                  "percentage": 100.0
+                                },
+                                "children": {}
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "div": {
+                        "stats": {
+                          "count": 1696,
+                          "total_occurrences": 3392,
+                          "percentage": 100.0
+                        },
+                        "children": {
+                          "div": {
+                            "stats": {
+                              "count": 1696,
+                              "total_occurrences": 3392,
+                              "percentage": 100.0
+                            },
+                            "children": {
+                              "canvas": {
+                                "stats": {
+                                  "count": 1696,
+                                  "total_occurrences": 1696,
+                                  "percentage": 100.0
+                                },
+                                "children": {}
+                              },
+                              "ul": {
+                                "stats": {
+                                  "count": 1696,
+                                  "total_occurrences": 1696,
+                                  "percentage": 100.0
+                                },
+                                "children": {
+                                  "li": {
+                                    "stats": {
+                                      "count": 1696,
+                                      "total_occurrences": 3392,
+                                      "percentage": 100.0
+                                    },
+                                    "children": {
+                                      "p": {
+                                        "stats": {
+                                          "count": 1696,
+                                          "total_occurrences": 6784,
+                                          "percentage": 100.0
+                                        },
+                                        "children": {
+                                          "svg": {
+                                            "stats": {
+                                              "count": 1696,
+                                              "total_occurrences": 3392,
+                                              "percentage": 100.0
+                                            },
+                                            "children": {
+                                              "g": {
+                                                "stats": {
+                                                  "count": 1696,
+                                                  "total_occurrences": 1696,
+                                                  "percentage": 100.0
+                                                },
+                                                "children": {
+                                                  "path": {
+                                                    "stats": {
+                                                      "count": 1696,
+                                                      "total_occurrences": 1696,
+                                                      "percentage": 100.0
+                                                    },
+                                                    "children": {}
+                                                  }
+                                                }
+                                              },
+                                              "path": {
+                                                "stats": {
+                                                  "count": 1696,
+                                                  "total_occurrences": 1696,
+                                                  "percentage": 100.0
+                                                },
+                                                "children": {}
+                                              }
+                                            }
+                                          },
+                                          "input": {
+                                            "stats": {
+                                              "count": 1696,
+                                              "total_occurrences": 3392,
+                                              "percentage": 100.0
+                                            },
+                                            "children": {}
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "p": {
+                            "stats": {
+                              "count": 1696,
+                              "total_occurrences": 1696,
+                              "percentage": 100.0
+                            },
+                            "children": {
+                              "button": {
+                                "stats": {
+                                  "count": 1696,
+                                  "total_occurrences": 3392,
+                                  "percentage": 100.0
+                                },
+                                "children": {}
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "nav": {
+                    "stats": {
+                      "count": 1696,
+                      "total_occurrences": 1696,
+                      "percentage": 100.0
+                    },
+                    "children": {
+                      "ul": {
+                        "stats": {
+                          "count": 1696,
+                          "total_occurrences": 1696,
+                          "percentage": 100.0
+                        },
+                        "children": {
+                          "li": {
+                            "stats": {
+                              "count": 1696,
+                              "total_occurrences": 13568,
+                              "percentage": 100.0
+                            },
+                            "children": {
+                              "nav": {
+                                "stats": {
+                                  "count": 1696,
+                                  "total_occurrences": 1696,
+                                  "percentage": 100.0
+                                },
+                                "children": {
+                                  "strong": {
+                                    "stats": {
+                                      "count": 1696,
+                                      "total_occurrences": 1696,
+                                      "percentage": 100.0
+                                    },
+                                    "children": {
+                                      "img": {
+                                        "stats": {
+                                          "count": 1696,
+                                          "total_occurrences": 1696,
+                                          "percentage": 100.0
+                                        },
+                                        "children": {}
+                                      }
+                                    }
+                                  },
+                                  "ul": {
+                                    "stats": {
+                                      "count": 1696,
+                                      "total_occurrences": 1696,
+                                      "percentage": 100.0
+                                    },
+                                    "children": {
+                                      "li": {
+                                        "stats": {
+                                          "count": 1696,
+                                          "total_occurrences": 39008,
+                                          "percentage": 100.0
+                                        },
+                                        "children": {
+                                          "a": {
+                                            "stats": {
+                                              "count": 1696,
+                                              "total_occurrences": 39008,
+                                              "percentage": 100.0
+                                            },
+                                            "children": {
+                                              "img": {
+                                                "stats": {
+                                                  "count": 1696,
+                                                  "total_occurrences": 39008,
+                                                  "percentage": 100.0
+                                                },
+                                                "children": {}
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "a": {
+                                "stats": {
+                                  "count": 1696,
+                                  "total_occurrences": 11872,
+                                  "percentage": 100.0
+                                },
+                                "children": {}
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "aside": {
+                "stats": {
+                  "count": 1696,
+                  "total_occurrences": 1696,
+                  "percentage": 100.0
+                },
+                "children": {
+                  "nav": {
+                    "stats": {
+                      "count": 1696,
+                      "total_occurrences": 1696,
+                      "percentage": 100.0
+                    },
+                    "children": {
+                      "ol": {
+                        "stats": {
+                          "count": 1696,
+                          "total_occurrences": 1696,
+                          "percentage": 100.0
+                        },
+                        "children": {
+                          "li": {
+                            "stats": {
+                              "count": 1696,
+                              "total_occurrences": 16760,
+                              "percentage": 100.0
+                            },
+                            "children": {
+                              "a": {
+                                "stats": {
+                                  "count": 1696,
+                                  "total_occurrences": 16760,
+                                  "percentage": 100.0
+                                },
+                                "children": {}
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "ins": {
+                "stats": {
+                  "count": 1696,
+                  "total_occurrences": 5638,
+                  "percentage": 100.0
+                },
+                "children": {
+                  "div": {
+                    "stats": {
+                      "count": 1696,
+                      "total_occurrences": 7113,
+                      "percentage": 100.0
+                    },
+                    "children": {
+                      "iframe": {
+                        "stats": {
+                          "count": 1695,
+                          "total_occurrences": 5368,
+                          "percentage": 99.94,
+                          "min": 2,
+                          "max": 4,
+                          "mean": 3.17,
+                          "median": 3
+                        },
+                        "children": {}
+                      }
+                    }
+                  },
+                  "span": {
+                    "stats": {
+                      "count": 503,
+                      "total_occurrences": 1006,
+                      "percentage": 29.66,
+                      "min": 2,
+                      "max": 2,
+                      "mean": 2,
+                      "median": 2
+                    },
+                    "children": {
+                      "svg": {
+                        "stats": {
+                          "count": 503,
+                          "total_occurrences": 503,
+                          "percentage": 29.66,
+                          "min": 1,
+                          "max": 1,
+                          "mean": 1,
+                          "median": 1
+                        },
+                        "children": {
+                          "defs": {
+                            "stats": {
+                              "count": 503,
+                              "total_occurrences": 503,
+                              "percentage": 29.66,
+                              "min": 1,
+                              "max": 1,
+                              "mean": 1,
+                              "median": 1
+                            },
+                            "children": {
+                              "filter": {
+                                "stats": {
+                                  "count": 503,
+                                  "total_occurrences": 503,
+                                  "percentage": 29.66,
+                                  "min": 1,
+                                  "max": 1,
+                                  "mean": 1,
+                                  "median": 1
+                                },
+                                "children": {
+                                  "fecomponenttransfer": {
+                                    "stats": {
+                                      "count": 503,
+                                      "total_occurrences": 503,
+                                      "percentage": 29.66,
+                                      "min": 1,
+                                      "max": 1,
+                                      "mean": 1,
+                                      "median": 1
+                                    },
+                                    "children": {
+                                      "fefuncr": {
+                                        "stats": {
+                                          "count": 503,
+                                          "total_occurrences": 503,
+                                          "percentage": 29.66,
+                                          "min": 1,
+                                          "max": 1,
+                                          "mean": 1,
+                                          "median": 1
+                                        },
+                                        "children": {}
+                                      },
+                                      "fefuncg": {
+                                        "stats": {
+                                          "count": 503,
+                                          "total_occurrences": 503,
+                                          "percentage": 29.66,
+                                          "min": 1,
+                                          "max": 1,
+                                          "mean": 1,
+                                          "median": 1
+                                        },
+                                        "children": {}
+                                      },
+                                      "fefuncb": {
+                                        "stats": {
+                                          "count": 503,
+                                          "total_occurrences": 503,
+                                          "percentage": 29.66,
+                                          "min": 1,
+                                          "max": 1,
+                                          "mean": 1,
+                                          "median": 1
+                                        },
+                                        "children": {}
+                                      }
+                                    }
+                                  },
+                                  "fegaussianblur": {
+                                    "stats": {
+                                      "count": 503,
+                                      "total_occurrences": 503,
+                                      "percentage": 29.66,
+                                      "min": 1,
+                                      "max": 1,
+                                      "mean": 1,
+                                      "median": 1
+                                    },
+                                    "children": {}
+                                  },
+                                  "feoffset": {
+                                    "stats": {
+                                      "count": 503,
+                                      "total_occurrences": 503,
+                                      "percentage": 29.66,
+                                      "min": 1,
+                                      "max": 1,
+                                      "mean": 1,
+                                      "median": 1
+                                    },
+                                    "children": {}
+                                  },
+                                  "femerge": {
+                                    "stats": {
+                                      "count": 503,
+                                      "total_occurrences": 503,
+                                      "percentage": 29.66,
+                                      "min": 1,
+                                      "max": 1,
+                                      "mean": 1,
+                                      "median": 1
+                                    },
+                                    "children": {
+                                      "femergenode": {
+                                        "stats": {
+                                          "count": 503,
+                                          "total_occurrences": 1006,
+                                          "percentage": 29.66,
+                                          "min": 2,
+                                          "max": 2,
+                                          "mean": 2,
+                                          "median": 2
+                                        },
+                                        "children": {}
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "path": {
+                            "stats": {
+                              "count": 503,
+                              "total_occurrences": 503,
+                              "percentage": 29.66,
+                              "min": 1,
+                              "max": 1,
+                              "mean": 1,
+                              "median": 1
+                            },
+                            "children": {}
+                          },
+                          "rect": {
+                            "stats": {
+                              "count": 503,
+                              "total_occurrences": 503,
+                              "percentage": 29.66,
+                              "min": 1,
+                              "max": 1,
+                              "mean": 1,
+                              "median": 1
+                            },
+                            "children": {}
+                          },
+                          "g": {
+                            "stats": {
+                              "count": 503,
+                              "total_occurrences": 503,
+                              "percentage": 29.66,
+                              "min": 1,
+                              "max": 1,
+                              "mean": 1,
+                              "median": 1
+                            },
+                            "children": {
+                              "line": {
+                                "stats": {
+                                  "count": 503,
+                                  "total_occurrences": 1006,
+                                  "percentage": 29.66,
+                                  "min": 2,
+                                  "max": 2,
+                                  "mean": 2,
+                                  "median": 2
+                                },
+                                "children": {}
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "section": {
+                "stats": {
+                  "count": 1696,
+                  "total_occurrences": 16760,
+                  "percentage": 100.0
+                },
+                "children": {
+                  "h1": {
+                    "stats": {
+                      "count": 1696,
+                      "total_occurrences": 16760,
+                      "percentage": 100.0
+                    },
+                    "children": {
+                      "button": {
+                        "stats": {
+                          "count": 1696,
+                          "total_occurrences": 1696,
+                          "percentage": 100.0
+                        },
+                        "children": {
+                          "svg": {
+                            "stats": {
+                              "count": 1696,
+                              "total_occurrences": 1696,
+                              "percentage": 100.0
+                            },
+                            "children": {
+                              "path": {
+                                "stats": {
+                                  "count": 1696,
+                                  "total_occurrences": 3392,
+                                  "percentage": 100.0
+                                },
+                                "children": {}
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "article": {
+                    "stats": {
+                      "count": 152,
+                      "total_occurrences": 152,
+                      "percentage": 8.96,
+                      "min": 1,
+                      "max": 1,
+                      "mean": 1,
+                      "median": 1.0
+                    },
+                    "children": {
+                      "p": {
+                        "stats": {
+                          "count": 152,
+                          "total_occurrences": 152,
+                          "percentage": 8.96,
+                          "min": 1,
+                          "max": 1,
+                          "mean": 1,
+                          "median": 1.0
+                        },
+                        "children": {}
+                      },
+                      "ul": {
+                        "stats": {
+                          "count": 152,
+                          "total_occurrences": 152,
+                          "percentage": 8.96,
+                          "min": 1,
+                          "max": 1,
+                          "mean": 1,
+                          "median": 1.0
+                        },
+                        "children": {
+                          "li": {
+                            "stats": {
+                              "count": 152,
+                              "total_occurrences": 231,
+                              "percentage": 8.96,
+                              "min": 1,
+                              "max": 3,
+                              "mean": 1.52,
+                              "median": 1.0
+                            },
+                            "children": {
+                              "h2": {
+                                "stats": {
+                                  "count": 152,
+                                  "total_occurrences": 231,
+                                  "percentage": 8.96,
+                                  "min": 1,
+                                  "max": 3,
+                                  "mean": 1.52,
+                                  "median": 1.0
+                                },
+                                "children": {}
+                              },
+                              "p": {
+                                "stats": {
+                                  "count": 14,
+                                  "total_occurrences": 14,
+                                  "percentage": 0.83,
+                                  "min": 1,
+                                  "max": 1,
+                                  "mean": 1,
+                                  "median": 1.0
+                                },
+                                "children": {
+                                  "a": {
+                                    "stats": {
+                                      "count": 14,
+                                      "total_occurrences": 14,
+                                      "percentage": 0.83,
+                                      "min": 1,
+                                      "max": 1,
+                                      "mean": 1,
+                                      "median": 1.0
+                                    },
+                                    "children": {}
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "p": {
+                    "stats": {
+                      "count": 1696,
+                      "total_occurrences": 9826,
+                      "percentage": 100.0
+                    },
+                    "children": {
+                      "img": {
+                        "stats": {
+                          "count": 1696,
+                          "total_occurrences": 1696,
+                          "percentage": 100.0
+                        },
+                        "children": {}
+                      },
+                      "strong": {
+                        "stats": {
+                          "count": 1696,
+                          "total_occurrences": 5266,
+                          "percentage": 100.0
+                        },
+                        "children": {}
+                      },
+                      "a": {
+                        "stats": {
+                          "count": 1696,
+                          "total_occurrences": 6926,
+                          "percentage": 100.0
+                        },
+                        "children": {
+                          "img": {
+                            "stats": {
+                              "count": 1696,
+                              "total_occurrences": 6618,
+                              "percentage": 100.0
+                            },
+                            "children": {}
+                          }
+                        }
+                      },
+                      "button": {
+                        "stats": {
+                          "count": 1696,
+                          "total_occurrences": 24474,
+                          "percentage": 100.0
+                        },
+                        "children": {
+                          "sub": {
+                            "stats": {
+                              "count": 1696,
+                              "total_occurrences": 9624,
+                              "percentage": 100.0
+                            },
+                            "children": {}
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "ul": {
+                    "stats": {
+                      "count": 1696,
+                      "total_occurrences": 17766,
+                      "percentage": 100.0
+                    },
+                    "children": {
+                      "li": {
+                        "stats": {
+                          "count": 1696,
+                          "total_occurrences": 80071,
+                          "percentage": 100.0
+                        },
+                        "children": {
+                          "a": {
+                            "stats": {
+                              "count": 1696,
+                              "total_occurrences": 59728,
+                              "percentage": 100.0
+                            },
+                            "children": {
+                              "br": {
+                                "stats": {
+                                  "count": 1696,
+                                  "total_occurrences": 25808,
+                                  "percentage": 100.0
+                                },
+                                "children": {}
+                              }
+                            }
+                          },
+                          "h2": {
+                            "stats": {
+                              "count": 1696,
+                              "total_occurrences": 19898,
+                              "percentage": 100.0
+                            },
+                            "children": {
+                              "a": {
+                                "stats": {
+                                  "count": 216,
+                                  "total_occurrences": 650,
+                                  "percentage": 12.74,
+                                  "min": 1,
+                                  "max": 6,
+                                  "mean": 3.01,
+                                  "median": 2.0
+                                },
+                                "children": {}
+                              }
+                            }
+                          },
+                          "ol": {
+                            "stats": {
+                              "count": 1696,
+                              "total_occurrences": 5088,
+                              "percentage": 100.0
+                            },
+                            "children": {
+                              "li": {
+                                "stats": {
+                                  "count": 1696,
+                                  "total_occurrences": 25440,
+                                  "percentage": 100.0
+                                },
+                                "children": {
+                                  "a": {
+                                    "stats": {
+                                      "count": 1696,
+                                      "total_occurrences": 25440,
+                                      "percentage": 100.0
+                                    },
+                                    "children": {
+                                      "br": {
+                                        "stats": {
+                                          "count": 1696,
+                                          "total_occurrences": 25440,
+                                          "percentage": 100.0
+                                        },
+                                        "children": {}
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "div": {
+                            "stats": {
+                              "count": 1668,
+                              "total_occurrences": 2205,
+                              "percentage": 98.35,
+                              "min": 1,
+                              "max": 3,
+                              "mean": 1.32,
+                              "median": 1.0
+                            },
+                            "children": {
+                              "ins": {
+                                "stats": {
+                                  "count": 1668,
+                                  "total_occurrences": 2205,
+                                  "percentage": 98.35,
+                                  "min": 1,
+                                  "max": 3,
+                                  "mean": 1.32,
+                                  "median": 1.0
+                                },
+                                "children": {
+                                  "div": {
+                                    "stats": {
+                                      "count": 1668,
+                                      "total_occurrences": 2205,
+                                      "percentage": 98.35,
+                                      "min": 1,
+                                      "max": 3,
+                                      "mean": 1.32,
+                                      "median": 1.0
+                                    },
+                                    "children": {
+                                      "iframe": {
+                                        "stats": {
+                                          "count": 1485,
+                                          "total_occurrences": 1994,
+                                          "percentage": 87.56,
+                                          "min": 1,
+                                          "max": 3,
+                                          "mean": 1.34,
+                                          "median": 1
+                                        },
+                                        "children": {}
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "ul": {
+                            "stats": {
+                              "count": 1512,
+                              "total_occurrences": 9072,
+                              "percentage": 89.15,
+                              "min": 6,
+                              "max": 6,
+                              "mean": 6,
+                              "median": 6.0
+                            },
+                            "children": {
+                              "li": {
+                                "stats": {
+                                  "count": 1512,
+                                  "total_occurrences": 19656,
+                                  "percentage": 89.15,
+                                  "min": 13,
+                                  "max": 13,
+                                  "mean": 13,
+                                  "median": 13.0
+                                },
+                                "children": {
+                                  "a": {
+                                    "stats": {
+                                      "count": 1512,
+                                      "total_occurrences": 19656,
+                                      "percentage": 89.15,
+                                      "min": 13,
+                                      "max": 13,
+                                      "mean": 13,
+                                      "median": 13.0
+                                    },
+                                    "children": {}
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "h3": {
+                            "stats": {
+                              "count": 212,
+                              "total_occurrences": 445,
+                              "percentage": 12.5,
+                              "min": 1,
+                              "max": 83,
+                              "mean": 2.1,
+                              "median": 1.0
+                            },
+                            "children": {}
+                          },
+                          "p": {
+                            "stats": {
+                              "count": 1696,
+                              "total_occurrences": 5533,
+                              "percentage": 100.0
+                            },
+                            "children": {
+                              "a": {
+                                "stats": {
+                                  "count": 212,
+                                  "total_occurrences": 445,
+                                  "percentage": 12.5,
+                                  "min": 1,
+                                  "max": 83,
+                                  "mean": 2.1,
+                                  "median": 1.0
+                                },
+                                "children": {}
+                              },
+                              "img": {
+                                "stats": {
+                                  "count": 1696,
+                                  "total_occurrences": 5088,
+                                  "percentage": 100.0
+                                },
+                                "children": {}
+                              }
+                            }
+                          },
+                          "figure": {
+                            "stats": {
+                              "count": 216,
+                              "total_occurrences": 650,
+                              "percentage": 12.74,
+                              "min": 1,
+                              "max": 6,
+                              "mean": 3.01,
+                              "median": 2.0
+                            },
+                            "children": {
+                              "a": {
+                                "stats": {
+                                  "count": 216,
+                                  "total_occurrences": 650,
+                                  "percentage": 12.74,
+                                  "min": 1,
+                                  "max": 6,
+                                  "mean": 3.01,
+                                  "median": 2.0
+                                },
+                                "children": {
+                                  "img": {
+                                    "stats": {
+                                      "count": 216,
+                                      "total_occurrences": 650,
+                                      "percentage": 12.74,
+                                      "min": 1,
+                                      "max": 6,
+                                      "mean": 3.01,
+                                      "median": 2.0
+                                    },
+                                    "children": {}
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "h2": {
+                    "stats": {
+                      "count": 1696,
+                      "total_occurrences": 17104,
+                      "percentage": 100.0
+                    },
+                    "children": {
+                      "button": {
+                        "stats": {
+                          "count": 1596,
+                          "total_occurrences": 4499,
+                          "percentage": 94.1,
+                          "min": 1,
+                          "max": 3,
+                          "mean": 2.82,
+                          "median": 3.0
+                        },
+                        "children": {
+                          "svg": {
+                            "stats": {
+                              "count": 1596,
+                              "total_occurrences": 4499,
+                              "percentage": 94.1,
+                              "min": 1,
+                              "max": 3,
+                              "mean": 2.82,
+                              "median": 3.0
+                            },
+                            "children": {
+                              "path": {
+                                "stats": {
+                                  "count": 1596,
+                                  "total_occurrences": 8998,
+                                  "percentage": 94.1,
+                                  "min": 2,
+                                  "max": 6,
+                                  "mean": 5.64,
+                                  "median": 6.0
+                                },
+                                "children": {}
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "ol": {
+                    "stats": {
+                      "count": 1696,
+                      "total_occurrences": 9446,
+                      "percentage": 100.0
+                    },
+                    "children": {
+                      "li": {
+                        "stats": {
+                          "count": 1696,
+                          "total_occurrences": 81479,
+                          "percentage": 100.0
+                        },
+                        "children": {
+                          "a": {
+                            "stats": {
+                              "count": 1696,
+                              "total_occurrences": 54537,
+                              "percentage": 100.0
+                            },
+                            "children": {}
+                          },
+                          "h3": {
+                            "stats": {
+                              "count": 1655,
+                              "total_occurrences": 26942,
+                              "percentage": 97.58,
+                              "min": 1,
+                              "max": 20,
+                              "mean": 16.28,
+                              "median": 20
+                            },
+                            "children": {
+                              "a": {
+                                "stats": {
+                                  "count": 1655,
+                                  "total_occurrences": 26942,
+                                  "percentage": 97.58,
+                                  "min": 1,
+                                  "max": 20,
+                                  "mean": 16.28,
+                                  "median": 20
+                                },
+                                "children": {}
+                              }
+                            }
+                          },
+                          "p": {
+                            "stats": {
+                              "count": 1655,
+                              "total_occurrences": 26942,
+                              "percentage": 97.58,
+                              "min": 1,
+                              "max": 20,
+                              "mean": 16.28,
+                              "median": 20
+                            },
+                            "children": {
+                              "a": {
+                                "stats": {
+                                  "count": 1655,
+                                  "total_occurrences": 26942,
+                                  "percentage": 97.58,
+                                  "min": 1,
+                                  "max": 20,
+                                  "mean": 16.28,
+                                  "median": 20
+                                },
+                                "children": {
+                                  "br": {
+                                    "stats": {
+                                      "count": 1655,
+                                      "total_occurrences": 26942,
+                                      "percentage": 97.58,
+                                      "min": 1,
+                                      "max": 20,
+                                      "mean": 16.28,
+                                      "median": 20
+                                    },
+                                    "children": {}
+                                  }
+                                }
+                              },
+                              "strong": {
+                                "stats": {
+                                  "count": 1655,
+                                  "total_occurrences": 26942,
+                                  "percentage": 97.58,
+                                  "min": 1,
+                                  "max": 20,
+                                  "mean": 16.28,
+                                  "median": 20
+                                },
+                                "children": {}
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "h3": {
+                    "stats": {
+                      "count": 1696,
+                      "total_occurrences": 3292,
+                      "percentage": 100.0
+                    },
+                    "children": {
+                      "button": {
+                        "stats": {
+                          "count": 1696,
+                          "total_occurrences": 3292,
+                          "percentage": 100.0
+                        },
+                        "children": {
+                          "svg": {
+                            "stats": {
+                              "count": 1696,
+                              "total_occurrences": 3292,
+                              "percentage": 100.0
+                            },
+                            "children": {
+                              "path": {
+                                "stats": {
+                                  "count": 1696,
+                                  "total_occurrences": 6584,
+                                  "percentage": 100.0
+                                },
+                                "children": {}
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "div": {
+                    "stats": {
+                      "count": 1135,
+                      "total_occurrences": 1135,
+                      "percentage": 66.92,
+                      "min": 1,
+                      "max": 1,
+                      "mean": 1,
+                      "median": 1
+                    },
+                    "children": {
+                      "ins": {
+                        "stats": {
+                          "count": 1135,
+                          "total_occurrences": 1135,
+                          "percentage": 66.92,
+                          "min": 1,
+                          "max": 1,
+                          "mean": 1,
+                          "median": 1
+                        },
+                        "children": {
+                          "div": {
+                            "stats": {
+                              "count": 1135,
+                              "total_occurrences": 1135,
+                              "percentage": 66.92,
+                              "min": 1,
+                              "max": 1,
+                              "mean": 1,
+                              "median": 1
+                            },
+                            "children": {
+                              "iframe": {
+                                "stats": {
+                                  "count": 75,
+                                  "total_occurrences": 75,
+                                  "percentage": 4.42,
+                                  "min": 1,
+                                  "max": 1,
+                                  "mean": 1,
+                                  "median": 1
+                                },
+                                "children": {}
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "section": {
+                    "stats": {
+                      "count": 1696,
+                      "total_occurrences": 5088,
+                      "percentage": 100.0
+                    },
+                    "children": {
+                      "h2": {
+                        "stats": {
+                          "count": 1696,
+                          "total_occurrences": 5088,
+                          "percentage": 100.0
+                        },
+                        "children": {}
+                      },
+                      "blockquote": {
+                        "stats": {
+                          "count": 1696,
+                          "total_occurrences": 5088,
+                          "percentage": 100.0
+                        },
+                        "children": {
+                          "p": {
+                            "stats": {
+                              "count": 1696,
+                              "total_occurrences": 5088,
+                              "percentage": 100.0
+                            },
+                            "children": {}
+                          },
+                          "footer": {
+                            "stats": {
+                              "count": 1696,
+                              "total_occurrences": 5088,
+                              "percentage": 100.0
+                            },
+                            "children": {}
+                          }
+                        }
+                      },
+                      "pre": {
+                        "stats": {
+                          "count": 1696,
+                          "total_occurrences": 5088,
+                          "percentage": 100.0
+                        },
+                        "children": {
+                          "code": {
+                            "stats": {
+                              "count": 1696,
+                              "total_occurrences": 5088,
+                              "percentage": 100.0
+                            },
+                            "children": {
+                              "strong": {
+                                "stats": {
+                                  "count": 1696,
+                                  "total_occurrences": 5088,
+                                  "percentage": 100.0
+                                },
+                                "children": {}
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "dl": {
+                    "stats": {
+                      "count": 1696,
+                      "total_occurrences": 1696,
+                      "percentage": 100.0
+                    },
+                    "children": {
+                      "dt": {
+                        "stats": {
+                          "count": 1696,
+                          "total_occurrences": 91508,
+                          "percentage": 100.0
+                        },
+                        "children": {
+                          "sub": {
+                            "stats": {
+                              "count": 1696,
+                              "total_occurrences": 11872,
+                              "percentage": 100.0
+                            },
+                            "children": {}
+                          }
+                        }
+                      },
+                      "dd": {
+                        "stats": {
+                          "count": 1696,
+                          "total_occurrences": 91508,
+                          "percentage": 100.0
+                        },
+                        "children": {
+                          "a": {
+                            "stats": {
+                              "count": 1696,
+                              "total_occurrences": 6702,
+                              "percentage": 100.0
+                            },
+                            "children": {
+                              "strong": {
+                                "stats": {
+                                  "count": 1696,
+                                  "total_occurrences": 6702,
+                                  "percentage": 100.0
+                                },
+                                "children": {}
+                              }
+                            }
+                          },
+                          "strong": {
+                            "stats": {
+                              "count": 6,
+                              "total_occurrences": 6,
+                              "percentage": 0.35,
+                              "min": 1,
+                              "max": 1,
+                              "mean": 1,
+                              "median": 1.0
+                            },
+                            "children": {}
+                          }
+                        }
+                      },
+                      "a": {
+                        "stats": {
+                          "count": 6,
+                          "total_occurrences": 6,
+                          "percentage": 0.35,
+                          "min": 1,
+                          "max": 1,
+                          "mean": 1,
+                          "median": 1.0
+                        },
+                        "children": {
+                          "strong": {
+                            "stats": {
+                              "count": 6,
+                              "total_occurrences": 6,
+                              "percentage": 0.35,
+                              "min": 1,
+                              "max": 1,
+                              "mean": 1,
+                              "median": 1.0
+                            },
+                            "children": {}
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "div": {
+                "stats": {
+                  "count": 1695,
+                  "total_occurrences": 6573,
+                  "percentage": 99.94,
+                  "min": 2,
+                  "max": 7,
+                  "mean": 3.88,
+                  "median": 4
+                },
+                "children": {
+                  "ins": {
+                    "stats": {
+                      "count": 1695,
+                      "total_occurrences": 5996,
+                      "percentage": 99.94,
+                      "min": 2,
+                      "max": 6,
+                      "mean": 3.54,
+                      "median": 4
+                    },
+                    "children": {
+                      "div": {
+                        "stats": {
+                          "count": 1695,
+                          "total_occurrences": 5996,
+                          "percentage": 99.94,
+                          "min": 2,
+                          "max": 6,
+                          "mean": 3.54,
+                          "median": 4
+                        },
+                        "children": {
+                          "iframe": {
+                            "stats": {
+                              "count": 1507,
+                              "total_occurrences": 3140,
+                              "percentage": 88.86,
+                              "min": 1,
+                              "max": 5,
+                              "mean": 2.08,
+                              "median": 2
+                            },
+                            "children": {}
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "footer": {
+                "stats": {
+                  "count": 1696,
+                  "total_occurrences": 1696,
+                  "percentage": 100.0
+                },
+                "children": {
+                  "p": {
+                    "stats": {
+                      "count": 1696,
+                      "total_occurrences": 1696,
+                      "percentage": 100.0
+                    },
+                    "children": {
+                      "svg": {
+                        "stats": {
+                          "count": 1696,
+                          "total_occurrences": 1696,
+                          "percentage": 100.0
+                        },
+                        "children": {
+                          "path": {
+                            "stats": {
+                              "count": 1696,
+                              "total_occurrences": 3392,
+                              "percentage": 100.0
+                            },
+                            "children": {}
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "script": {
+                "stats": {
+                  "count": 1696,
+                  "total_occurrences": 8465,
+                  "percentage": 100.0
+                },
+                "children": {}
+              },
+              "button": {
+                "stats": {
+                  "count": 1696,
+                  "total_occurrences": 6784,
+                  "percentage": 100.0
+                },
+                "children": {
+                  "img": {
+                    "stats": {
+                      "count": 1696,
+                      "total_occurrences": 3392,
+                      "percentage": 100.0
+                    },
+                    "children": {}
+                  },
+                  "svg": {
+                    "stats": {
+                      "count": 1696,
+                      "total_occurrences": 3392,
+                      "percentage": 100.0
+                    },
+                    "children": {
+                      "path": {
+                        "stats": {
+                          "count": 1696,
+                          "total_occurrences": 6784,
+                          "percentage": 100.0
+                        },
+                        "children": {}
+                      }
+                    }
+                  }
+                }
+              },
+              "iframe": {
+                "stats": {
+                  "count": 1695,
+                  "total_occurrences": 6220,
+                  "percentage": 99.94,
+                  "min": 1,
+                  "max": 6,
+                  "mean": 3.67,
+                  "median": 4
+                },
+                "children": {}
+              }
+            }
+          },
+          "iframe": {
+            "stats": {
+              "count": 1695,
+              "total_occurrences": 1695,
+              "percentage": 99.94,
+              "min": 1,
+              "max": 1,
+              "mean": 1,
+              "median": 1
+            },
+            "children": {}
+          },
+          "ins": {
+            "stats": {
+              "count": 1452,
+              "total_occurrences": 1452,
+              "percentage": 85.61,
+              "min": 1,
+              "max": 1,
+              "mean": 1,
+              "median": 1.0
+            },
+            "children": {
+              "div": {
+                "stats": {
+                  "count": 1452,
+                  "total_occurrences": 1452,
+                  "percentage": 85.61,
+                  "min": 1,
+                  "max": 1,
+                  "mean": 1,
+                  "median": 1.0
+                },
+                "children": {
+                  "iframe": {
+                    "stats": {
+                      "count": 1297,
+                      "total_occurrences": 1297,
+                      "percentage": 76.47,
+                      "min": 1,
+                      "max": 1,
+                      "mean": 1,
+                      "median": 1
+                    },
+                    "children": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
