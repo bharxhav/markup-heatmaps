@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Structure Visualizer</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap");
+
+      body {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 14px;
+        line-height: 1.5;
+        background-color: #14141e;
+        color: #f0f0f0;
+        padding: 20px;
+        margin: 0;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .dom-structure {
+        padding-left: 0;
+      }
+
+      .dom-node {
+        position: relative;
+        list-style: none;
+        margin: 0;
+        padding: 6px 0;
+        white-space: pre;
+      }
+
+      .dom-node::before {
+        content: "";
+        position: absolute;
+        left: -10px;
+        top: 0;
+        height: 100%;
+        width: 1px;
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .dom-node:last-child::before {
+        height: 50%;
+      }
+
+      .dom-node::after {
+        content: "";
+        position: absolute;
+        left: -10px;
+        top: 50%;
+        width: 8px;
+        height: 1px;
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .dom-node-content {
+        display: inline-block;
+      }
+
+      .children {
+        padding-left: 20px;
+        margin: 0;
+        position: relative;
+      }
+
+      .caret {
+        cursor: pointer;
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 5px 0 5px 8px;
+        border-color: transparent transparent transparent
+          rgba(255, 255, 255, 0.7);
+        margin-right: 6px;
+        transform-origin: 25% 50%;
+        transition: transform 0.2s;
+        vertical-align: middle;
+      }
+
+      .caret-down {
+        transform: rotate(90deg);
+      }
+
+      .collapsed {
+        display: none;
+      }
+
+      .legend {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+
+      .legend-bar {
+        height: 20px;
+        width: 100%;
+        margin: 10px 0;
+        background: linear-gradient(to right, #2050ff, #ff5050);
+        border-radius: 3px;
+      }
+
+      .legend-labels {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .legend-label {
+        text-align: center;
+      }
+
+      .title {
+        margin-top: 15px;
+        margin-bottom: 30px;
+      }
+
+      .controls {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 20px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .controls button {
+        background-color: #323250;
+        color: #f0f0f0;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 14px;
+        transition: background-color 0.2s;
+      }
+
+      .controls button:hover {
+        background-color: #4b4b70;
+      }
+
+      .controls button.active {
+        background-color: #5050a0;
+      }
+
+      .color-picker-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .color-picker {
+        height: 30px;
+        width: 60px;
+        padding: 0;
+        border: none;
+        cursor: pointer;
+        background-color: transparent;
+      }
+
+      .stats-details {
+        font-size: 12px;
+        opacity: 0.8;
+        margin-left: 10px;
+      }
+
+      .loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 200px;
+        font-size: 18px;
+      }
+
+      .error {
+        color: #ff5050;
+        padding: 20px;
+        border-left: 3px solid #ff5050;
+        background-color: rgba(255, 80, 80, 0.1);
+      }
+
+      #expand-all,
+      #collapse-all {
+        background-color: #323250;
+        color: #f0f0f0;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 12px;
+        transition: background-color 0.2s;
+        margin-top: 10px;
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>DOM Structure Visualization</h1>
+
+      <div class="controls">
+        <div>
+          <button id="rainbow-mode" class="active">Rainbow</button>
+          <button id="mono-mode">Monochrome</button>
+        </div>
+        <div class="color-picker-container" style="display: none">
+          <label for="color-picker">Primary Color:</label>
+          <input
+            type="color"
+            id="color-picker"
+            class="color-picker"
+            value="#5050a0"
+          />
+        </div>
+        <div>
+          <button id="expand-all">Expand All</button>
+          <button id="collapse-all">Collapse All</button>
+        </div>
+      </div>
+
+      <div class="legend">
+        <div class="legend-bar"></div>
+        <div class="legend-labels">
+          <span class="legend-label">0%</span>
+          <span class="legend-label">20%</span>
+          <span class="legend-label">40%</span>
+          <span class="legend-label">60%</span>
+          <span class="legend-label">80%</span>
+          <span class="legend-label">100%</span>
+        </div>
+        <p class="title">DOM Structure: Color intensity represents frequency</p>
+      </div>
+
+      <div id="visualization">
+        <div class="loading">Loading DOM data...</div>
+      </div>
+    </div>
+
+    <script>
+      class DomVisualizer {
+        constructor() {
+          this.domData = null;
+          this.container = document.getElementById("visualization");
+          this.colorMode = "rainbow";
+          this.primaryColor = "#5050a0";
+          this.setupEventListeners();
+        }
+
+        setupEventListeners() {
+          const rainbowBtn = document.getElementById("rainbow-mode");
+          const monoBtn = document.getElementById("mono-mode");
+          const colorPicker = document.getElementById("color-picker");
+          const colorPickerContainer = document.querySelector(
+            ".color-picker-container"
+          );
+          const expandAllBtn = document.getElementById("expand-all");
+          const collapseAllBtn = document.getElementById("collapse-all");
+
+          rainbowBtn.addEventListener("click", () => {
+            this.colorMode = "rainbow";
+            rainbowBtn.classList.add("active");
+            monoBtn.classList.remove("active");
+            colorPickerContainer.style.display = "none";
+            this.render();
+          });
+
+          monoBtn.addEventListener("click", () => {
+            this.colorMode = "monochrome";
+            monoBtn.classList.add("active");
+            rainbowBtn.classList.remove("active");
+            colorPickerContainer.style.display = "flex";
+            this.render();
+          });
+
+          colorPicker.addEventListener("input", (e) => {
+            this.primaryColor = e.target.value;
+            if (this.colorMode === "monochrome") {
+              this.render();
+            }
+          });
+
+          expandAllBtn.addEventListener("click", () => {
+            const carets = document.querySelectorAll(".caret");
+            carets.forEach((caret) => {
+              caret.classList.add("caret-down");
+              const children = caret.parentElement.nextElementSibling;
+              if (children) children.classList.remove("collapsed");
+            });
+          });
+
+          collapseAllBtn.addEventListener("click", () => {
+            const carets = document.querySelectorAll(".caret");
+            carets.forEach((caret) => {
+              caret.classList.remove("caret-down");
+              const children = caret.parentElement.nextElementSibling;
+              if (children) children.classList.add("collapsed");
+            });
+          });
+        }
+
+        async loadDomData() {
+          try {
+            this.container.innerHTML =
+              '<div class="loading">Loading DOM data...</div>';
+            const response = await fetch("./assets/aggregated_dom.json");
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            this.domData = await response.json();
+            this.render();
+            return this.domData;
+          } catch (error) {
+            console.error("Error loading DOM data:", error);
+            this.container.innerHTML = `<div class="error">Error loading DOM data: ${error.message}</div>`;
+            return null;
+          }
+        }
+
+        render() {
+          if (!this.domData) {
+            return;
+          }
+
+          this.container.innerHTML = "";
+
+          const rootUl = document.createElement("ul");
+          rootUl.className = "dom-structure";
+
+          this.renderStructure(this.domData, rootUl);
+          this.container.appendChild(rootUl);
+
+          // Add click event listeners to all carets
+          document.querySelectorAll(".caret").forEach((caret) => {
+            caret.addEventListener("click", function () {
+              this.classList.toggle("caret-down");
+              const children = this.parentElement.nextElementSibling;
+              if (children) children.classList.toggle("collapsed");
+            });
+          });
+        }
+
+        renderStructure(data, parentElement, depth = 0) {
+          if (!data) return;
+
+          // Sort tags by percentage (descending)
+          const sortedTags = Object.entries(data).sort((a, b) => {
+            const aPercentage = a[1].stats?.percentage || 0;
+            const bPercentage = b[1].stats?.percentage || 0;
+            return bPercentage - aPercentage;
+          });
+
+          sortedTags.forEach(([tag, info], index) => {
+            const stats = info.stats || {};
+            const percentage = stats.percentage || 100;
+            const count = stats.count || 0;
+            const total = stats.total_occurrences || 0;
+
+            // Get node color
+            let color;
+            if (this.colorMode === "rainbow") {
+              // Calculate color based on tag position in rainbow spectrum
+              const hue = (index / Math.max(sortedTags.length, 1)) % 1.0;
+              const [r, g, b] = this.hsvToRgb(hue, 0.8, 0.9);
+              color = `rgba(${r}, ${g}, ${b}, ${percentage / 100})`;
+            } else {
+              // Use monochrome with the selected primary color
+              const [h, s, v] = this.rgbToHsv(
+                ...this.hexToRgb(this.primaryColor)
+              );
+              const [r, g, b] = this.hsvToRgb(h, s * (percentage / 100), v);
+              color = `rgba(${r}, ${g}, ${b}, ${percentage / 100})`;
+            }
+
+            const li = document.createElement("li");
+            li.className = "dom-node";
+
+            const hasChildren =
+              info.children && Object.keys(info.children).length > 0;
+
+            // Create node content with collapsible caret if it has children
+            const contentDiv = document.createElement("div");
+            contentDiv.style.display = "inline-block";
+
+            if (hasChildren) {
+              const caret = document.createElement("span");
+              caret.className = "caret caret-down";
+              contentDiv.appendChild(caret);
+            }
+
+            const content = document.createElement("span");
+            content.className = "dom-node-content";
+            content.textContent = `${tag} ${percentage.toFixed(
+              1
+            )}% (${count}/${total})`;
+            content.style.color = color;
+            content.style.textShadow = "0 0 1px rgba(0,0,0,0.5)";
+            contentDiv.appendChild(content);
+
+            // Add additional stats if available and not 100%
+            if (
+              percentage < 100 &&
+              (stats.min !== undefined || stats.max !== undefined)
+            ) {
+              const statsDetails = document.createElement("span");
+              statsDetails.className = "stats-details";
+
+              const details = [];
+              if (stats.min !== undefined) details.push(`min: ${stats.min}`);
+              if (stats.max !== undefined) details.push(`max: ${stats.max}`);
+              if (stats.mean !== undefined)
+                details.push(`mean: ${stats.mean.toFixed(2)}`);
+              if (stats.median !== undefined)
+                details.push(`median: ${stats.median}`);
+
+              statsDetails.textContent = `[${details.join(", ")}]`;
+              contentDiv.appendChild(statsDetails);
+            }
+
+            li.appendChild(contentDiv);
+
+            // Add children if any
+            if (hasChildren) {
+              const childrenUl = document.createElement("ul");
+              childrenUl.className = "children";
+              this.renderStructure(info.children, childrenUl, depth + 1);
+              li.appendChild(childrenUl);
+            }
+
+            parentElement.appendChild(li);
+          });
+        }
+
+        hsvToRgb(h, s, v) {
+          let r, g, b;
+          const i = Math.floor(h * 6);
+          const f = h * 6 - i;
+          const p = v * (1 - s);
+          const q = v * (1 - f * s);
+          const t = v * (1 - (1 - f) * s);
+
+          switch (i % 6) {
+            case 0:
+              r = v;
+              g = t;
+              b = p;
+              break;
+            case 1:
+              r = q;
+              g = v;
+              b = p;
+              break;
+            case 2:
+              r = p;
+              g = v;
+              b = t;
+              break;
+            case 3:
+              r = p;
+              g = q;
+              b = v;
+              break;
+            case 4:
+              r = t;
+              g = p;
+              b = v;
+              break;
+            case 5:
+              r = v;
+              g = p;
+              b = q;
+              break;
+          }
+
+          return [
+            Math.round(r * 255),
+            Math.round(g * 255),
+            Math.round(b * 255),
+          ];
+        }
+
+        hexToRgb(hex) {
+          const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+          return result
+            ? [
+                parseInt(result[1], 16),
+                parseInt(result[2], 16),
+                parseInt(result[3], 16),
+              ]
+            : [0, 0, 0];
+        }
+
+        rgbToHsv(r, g, b) {
+          r /= 255;
+          g /= 255;
+          b /= 255;
+
+          const max = Math.max(r, g, b);
+          const min = Math.min(r, g, b);
+          let h,
+            s,
+            v = max;
+
+          const d = max - min;
+          s = max === 0 ? 0 : d / max;
+
+          if (max === min) {
+            h = 0; // achromatic
+          } else {
+            switch (max) {
+              case r:
+                h = (g - b) / d + (g < b ? 6 : 0);
+                break;
+              case g:
+                h = (b - r) / d + 2;
+                break;
+              case b:
+                h = (r - g) / d + 4;
+                break;
+            }
+            h /= 6;
+          }
+
+          return [h, s, v];
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", async () => {
+        const visualizer = new DomVisualizer();
+
+        try {
+          await visualizer.loadDomData();
+        } catch (error) {
+          console.error("Failed to initialize visualizer:", error);
+          document.getElementById(
+            "visualization"
+          ).innerHTML = `<div class="error">Error initializing visualizer: ${error.message}</div>`;
+        }
+
+        // For development/demo purposes, use this fallback data if loading fails
+        if (!visualizer.domData) {
+          visualizer.domData = {
+            html: {
+              stats: { percentage: 100, count: 100, total_occurrences: 100 },
+              children: {
+                head: {
+                  stats: { percentage: 90, count: 90, total_occurrences: 100 },
+                  children: {
+                    meta: {
+                      stats: {
+                        percentage: 85,
+                        count: 170,
+                        total_occurrences: 200,
+                        min: 1,
+                        max: 12,
+                        mean: 8.5,
+                        median: 8,
+                      },
+                    },
+                    title: {
+                      stats: {
+                        percentage: 95,
+                        count: 95,
+                        total_occurrences: 100,
+                      },
+                    },
+                    link: {
+                      stats: {
+                        percentage: 80,
+                        count: 240,
+                        total_occurrences: 300,
+                        min: 2,
+                        max: 15,
+                        mean: 7.2,
+                        median: 6,
+                      },
+                    },
+                  },
+                },
+                body: {
+                  stats: {
+                    percentage: 100,
+                    count: 100,
+                    total_occurrences: 100,
+                  },
+                  children: {
+                    div: {
+                      stats: {
+                        percentage: 98,
+                        count: 490,
+                        total_occurrences: 500,
+                      },
+                      children: {
+                        header: {
+                          stats: {
+                            percentage: 75,
+                            count: 75,
+                            total_occurrences: 100,
+                            min: 1,
+                            max: 1,
+                            mean: 1,
+                            median: 1,
+                          },
+                        },
+                        main: {
+                          stats: {
+                            percentage: 80,
+                            count: 80,
+                            total_occurrences: 100,
+                          },
+                        },
+                        footer: {
+                          stats: {
+                            percentage: 70,
+                            count: 70,
+                            total_occurrences: 100,
+                          },
+                        },
+                      },
+                    },
+                    script: {
+                      stats: {
+                        percentage: 90,
+                        count: 180,
+                        total_occurrences: 200,
+                        min: 1,
+                        max: 8,
+                        mean: 3.2,
+                        median: 3,
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          };
+          visualizer.render();
+        }
+      });
+    </script>
+  </body>
+</html>
